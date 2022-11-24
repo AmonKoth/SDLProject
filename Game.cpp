@@ -45,6 +45,25 @@ bool Game::Init(const char* title, int xpos, int ypos, int height, int width, bo
 	{
 		return false;
 	}
+	if (!TheTextureManager::Instance()->Load("assets/skelly.png", "skelly", mainRenderer))
+	{
+		return false;
+	}
+
+	m_player = new Player();
+	m_enemy1 = new Enemy();
+	m_enemy2 = new Enemy();
+	
+
+	m_enemy1->Load(20, 20, 50, 45, "skelly");
+	m_enemy2->Load(20, 30, 50, 45, "skelly");
+	m_player->Load(400, 20, 32, 42, "marco");
+
+
+	m_gameObjects.push_back(m_player);
+	m_gameObjects.push_back(m_enemy1);
+	m_gameObjects.push_back(m_enemy2);
+
 	return true;
 }
 
@@ -52,11 +71,17 @@ void Game::Renderer()
 {
 
 	SDL_RenderClear(mainRenderer);
-	TheTextureManager::Instance()->Draw("marco", 0, 0, 32, 42, mainRenderer);
-	TheTextureManager::Instance()->DrawFrame("marco", 50, 50, 32, 42, 1, currentFrame, mainRenderer);
-	TheTextureManager::Instance()->DrawFrame("marco", 100, 50, 32, 42, 1, currentFrame, mainRenderer);
-	TheTextureManager::Instance()->DrawFrame("marco", 150, 50, 32, 42, 1, currentFrame, mainRenderer);
-	TheTextureManager::Instance()->DrawFrame("marco", 200, 50, 32, 42, 1, currentFrame, mainRenderer);
+
+	for (std::vector<GameObject*>::size_type i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->Draw(mainRenderer);
+	}
+
+	//TheTextureManager::Instance()->Draw("marco", 0, 0, 32, 42, mainRenderer);
+	//TheTextureManager::Instance()->DrawFrame("marco", 50, 50, 32, 42, 1, currentFrame, mainRenderer);
+	//TheTextureManager::Instance()->DrawFrame("marco", 100, 50, 32, 42, 1, currentFrame, mainRenderer);
+	//TheTextureManager::Instance()->DrawFrame("marco", 150, 50, 32, 42, 1, currentFrame, mainRenderer);
+	//TheTextureManager::Instance()->DrawFrame("marco", 200, 50, 32, 42, 1, currentFrame, mainRenderer);
 	SDL_RenderPresent(mainRenderer);
 }
 
@@ -87,4 +112,8 @@ void Game::HandleEvents()
 void Game::Update()
 {
 	currentFrame = int(((SDL_GetTicks() / 100) % 9));
+	for (std::vector<GameObject*>::size_type i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->Update();
+	}
 }

@@ -2,10 +2,14 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SDL.h>
 #include <iostream>
+#include <vector>
+#include <SDL.h>
 #include <SDL_image.h>
+
 #include "TextureManager.h"
+#include "Player.h"
+#include "Enemy.h"
 
 class Game
 {
@@ -27,6 +31,13 @@ private:
 	bool m_bRunning;
 	int currentFrame;
 	
+
+	GameObject* m_player;
+	GameObject* m_enemy1;
+	GameObject* m_enemy2;
+
+
+	std::vector<GameObject*> m_gameObjects;
 };
 
 
