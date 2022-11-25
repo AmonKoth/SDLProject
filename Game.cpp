@@ -50,7 +50,7 @@ bool Game::Init(const char* title, int xpos, int ypos, int height, int width, bo
 		return false;
 	}
 
-	m_gameObjects.push_back(new Player(400, 20, 32, 42, "marco"));
+	m_gameObjects.push_back(new Player(10,20, 32, 42, "marco"));
 	m_gameObjects.push_back(new Enemy(20, 20, 50, 45, "skelly"));
 	m_gameObjects.push_back(new Enemy(20, 30, 50, 45, "skelly"));
 

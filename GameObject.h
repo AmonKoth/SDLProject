@@ -4,13 +4,15 @@
 
 #include <iostream>
 #include "TextureManager.h"
+#include "Vector2D.h"
+
 
 class GameObject
 {
 
 public:
 
-	GameObject(int x, int y, int width, int height, std::string textureID);
+	GameObject(float x, float y, int width, int height, std::string textureID);
 	~GameObject() {}
 
 	virtual void Draw(SDL_Renderer* pRenderer );
@@ -21,8 +23,7 @@ public:
 
 protected:
 
-	int m_xCoord;
-	int m_yCoord;
+	Vector2D m_position;
 
 	int m_width;
 	int m_height;

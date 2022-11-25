@@ -15,7 +15,8 @@ void Player::Draw(SDL_Renderer* pRenderer)
 
 void Player::Update()
 {
-	m_xCoord -= 1;
+	m_position.SetX(m_position.GetX() +1);
+	m_currentFrame = int(((SDL_GetTicks() / 100) % 9));
 }
 
 void Player::Clean()
