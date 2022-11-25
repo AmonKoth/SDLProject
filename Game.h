@@ -14,7 +14,6 @@
 class Game
 {
 public:
-	Game() {}
 	~Game() {}
 
 	bool Init(const char* title, int xpos, int ypos, int height, int width, bool fullscreen);
@@ -24,21 +23,32 @@ public:
 	void Clean();
 	bool running() { return m_bRunning; }
 
+	SDL_Renderer* GetRenderer() { return mainRenderer; }
+
+	static Game* Instance()
+	{
+		if (s_pInstance == 0)
+		{
+			s_pInstance = new Game();
+			return s_pInstance;
+		}
+		return s_pInstance;
+	}
+
 private:
+	Game() {}
 	SDL_Window* mainWindow;
 	SDL_Renderer* mainRenderer;
 	
 	bool m_bRunning;
 	int currentFrame;
+
+	static Game* s_pInstance;
 	
-
-	GameObject* m_player;
-	GameObject* m_enemy1;
-	GameObject* m_enemy2;
-
-
 	std::vector<GameObject*> m_gameObjects;
 };
+
+typedef Game TheGame;
 
 
 #endif // !GAME_H

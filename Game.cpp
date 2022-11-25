@@ -50,19 +50,9 @@ bool Game::Init(const char* title, int xpos, int ypos, int height, int width, bo
 		return false;
 	}
 
-	m_player = new Player();
-	m_enemy1 = new Enemy();
-	m_enemy2 = new Enemy();
-	
-
-	m_enemy1->Load(20, 20, 50, 45, "skelly");
-	m_enemy2->Load(20, 30, 50, 45, "skelly");
-	m_player->Load(400, 20, 32, 42, "marco");
-
-
-	m_gameObjects.push_back(m_player);
-	m_gameObjects.push_back(m_enemy1);
-	m_gameObjects.push_back(m_enemy2);
+	m_gameObjects.push_back(new Player(400, 20, 32, 42, "marco"));
+	m_gameObjects.push_back(new Enemy(20, 20, 50, 45, "skelly"));
+	m_gameObjects.push_back(new Enemy(20, 30, 50, 45, "skelly"));
 
 	return true;
 }
@@ -76,12 +66,6 @@ void Game::Renderer()
 	{
 		m_gameObjects[i]->Draw(mainRenderer);
 	}
-
-	//TheTextureManager::Instance()->Draw("marco", 0, 0, 32, 42, mainRenderer);
-	//TheTextureManager::Instance()->DrawFrame("marco", 50, 50, 32, 42, 1, currentFrame, mainRenderer);
-	//TheTextureManager::Instance()->DrawFrame("marco", 100, 50, 32, 42, 1, currentFrame, mainRenderer);
-	//TheTextureManager::Instance()->DrawFrame("marco", 150, 50, 32, 42, 1, currentFrame, mainRenderer);
-	//TheTextureManager::Instance()->DrawFrame("marco", 200, 50, 32, 42, 1, currentFrame, mainRenderer);
 	SDL_RenderPresent(mainRenderer);
 }
 
@@ -117,3 +101,5 @@ void Game::Update()
 		m_gameObjects[i]->Update();
 	}
 }
+
+Game* Game::s_pInstance = 0;

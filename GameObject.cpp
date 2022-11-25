@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-void GameObject::Load(int x, int y, int width, int heigth, std::string textureID)
+GameObject::GameObject(int x, int y, int width, int heigth, std::string textureID)
 {
 	m_xCoord = x;
 	m_yCoord = y;

@@ -1,9 +1,9 @@
 #include "Player.h"
 
 
-void Player::Load(int x, int y, int width, int height, std::string textureID)
+Player::Player(int x, int y, int width, int height, std::string textureID) :GameObject(x,y,width,height,textureID)
 {
-	GameObject::Load(x, y, width, height, textureID);
+
 }
 
 

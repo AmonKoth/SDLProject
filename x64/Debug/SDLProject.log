@@ -1,5 +1,7 @@
 ﻿  Enemy.cpp
   Game.cpp
+  GameObject.cpp
+  Player.cpp
   main.cpp
   Generating Code...
   SDLProject.vcxproj -> C:\VSProjects\OpenGL\SDLProject\x64\Debug\SDLProject.exe

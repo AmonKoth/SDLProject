@@ -1,22 +1,26 @@
 #include "Game.h"
 
-Game* g_game = 0;
-
 int main(int argc, char* argv[])
 {
-	g_game = new Game();
-	if (g_game->Init("First Window", 100, 100, 640, 580, true))
+	std::cout << "Game creation attempt \n";
+	if (TheGame::Instance()->Init("First Window", 100, 100, 640, 580, true))
 	{
-	while (g_game->running())
-	{
-		g_game->HandleEvents();
-		g_game->Update();
-		g_game->Renderer();
-		SDL_Delay(10);
+		while (TheGame::Instance()->running())
+		{
+			TheGame::Instance()->HandleEvents();
+			TheGame::Instance()->Update();
+			TheGame::Instance()->Renderer();
+			SDL_Delay(10);
+		}
 	}
-	g_game->Clean();
+	else
+	{
+		std::cout << "Init failed " << SDL_GetError() <<" \n";
+		return -1;
+	}
 
-	}
+	std::cout << "Game Closing\n";
+	TheGame::Instance()->Clean();
 	return 0;
 
 }

@@ -1,8 +1,8 @@
 #include "Enemy.h"
 
-void Enemy::Load(int x, int y, int width, int height, std::string textureID)
+ Enemy::Enemy(int x, int y, int width, int height, std::string textureID) : GameObject(x,y,width,height,textureID)
 {
-	GameObject::Load(x, y, width, height, textureID);
+
 }
 
 
