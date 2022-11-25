@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
- Enemy::Enemy(int x, int y, int width, int height, std::string textureID) : GameObject(x,y,width,height,textureID)
+ Enemy::Enemy(float x, float y, int width, int height, std::string textureID) : GameObject(x,y,width,height,textureID)
 {
 
 }
@@ -14,9 +14,13 @@ void Enemy::Draw(SDL_Renderer* pRenderer)
 
 void Enemy::Update()
 {
-	m_position.SetX(m_position.GetX() +1);
-	m_position.SetY(m_position.GetY() +1);
+
 	m_currentFrame = int(((SDL_GetTicks() / 100) % 9));
+
+	m_velocity.SetX(1);
+	m_velocity.SetY(1);
+
+	GameObject::Update();
 }
 
 void Enemy::Clean()

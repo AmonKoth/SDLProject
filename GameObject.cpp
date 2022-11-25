@@ -1,9 +1,7 @@
 #include "GameObject.h"
 
-GameObject::GameObject(float x, float y, int width, int heigth, std::string textureID)
+GameObject::GameObject(float x, float y, int width, int heigth, std::string textureID) : m_position(x,y), m_velocity(0, 0)
 {
-	m_position.SetX(x);
-	m_position.SetY(y);
 	m_width = width;
 	m_height = heigth;
 
@@ -22,7 +20,8 @@ void GameObject::Draw(SDL_Renderer* pRenderer)
 
 void GameObject::Update()
 {
-
+	m_velocity += m_acceleration;
+	m_position += m_velocity;
 }
 
 

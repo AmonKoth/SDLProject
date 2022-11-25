@@ -7,7 +7,7 @@ class Enemy : public GameObject
 {
 public:
 
-	Enemy(int x, int y, int width, int height, std::string textureID);
+	Enemy(float x, float y, int width, int height, std::string textureID);
 	~Enemy() {};
 
 	void Draw(SDL_Renderer* pRenderer);
