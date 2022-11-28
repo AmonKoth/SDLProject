@@ -1,6 +1,2 @@
-﻿  InputHandler.cpp
-C:\VSProjects\OpenGL\SDLProject\InputHandler.cpp(24,33): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-C:\VSProjects\OpenGL\SDLProject\InputHandler.cpp(25,33): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-  Player.cpp
-  Generating Code...
+﻿  Player.cpp
   SDLProject.vcxproj -> C:\VSProjects\OpenGL\SDLProject\x64\Debug\SDLProject.exe

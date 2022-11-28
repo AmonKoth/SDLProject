@@ -25,18 +25,37 @@ void Player::Update()
 }
 
 void Player::HandleInput()
-{/*
-	if (TheInputHandler::Instance()->getMouseButtonState(LEFT))
+{
+	//Mouse buton
+	//if (TheInputHandler::Instance()->getMouseButtonState(LEFT))
+	//{
+	//	m_velocity.SetX(1);
+	//}
+	//if (TheInputHandler::Instance()->getMouseButtonState(RIGHT))
+	//{
+	//	m_velocity.SetX(-1);
+	//}
+	
+	//Mouse
+	//Vector2D* vec = TheInputHandler::Instance()->getMousePos();
+	//m_velocity = (*vec - m_position) / 100;
+
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
 	{
-		m_velocity.SetX(1);
+		m_velocity.SetX(2);
 	}
-	if (TheInputHandler::Instance()->getMouseButtonState(RIGHT))
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT))
 	{
-		m_velocity.SetX(-1);
+		m_velocity.SetX(-2);
 	}
-	*/
-	Vector2D* vec = TheInputHandler::Instance()->getMousePos();
-	m_velocity = (*vec - m_position) / 100;
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP))
+	{
+		m_velocity.SetY(-2);
+	}
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN))
+	{
+		m_velocity.SetY(2);
+	}
 }
 
 void Player::Clean()
