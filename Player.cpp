@@ -15,10 +15,25 @@ void Player::Draw(SDL_Renderer* pRenderer)
 
 void Player::Update()
 {
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 9));
+	m_velocity.SetX(0);
+	m_velocity.SetY(0);
 
-	m_acceleration.SetX(0.25);
+	HandleInput();
+	m_currentFrame = int(((SDL_GetTicks() / 100) % 9));
+	
 	GameObject::Update();
+}
+
+void Player::HandleInput()
+{
+	if (TheInputHandler::Instance()->getMouseButtonState(LEFT))
+	{
+		m_velocity.SetX(5);
+	}
+	if (TheInputHandler::Instance()->getMouseButtonState(RIGHT))
+	{
+		m_velocity.SetX(-5);
+	}
 }
 
 void Player::Clean()

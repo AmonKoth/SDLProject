@@ -2,7 +2,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include"GameObject.h"
+#include "GameObject.h"
+#include "InputHandler.h"
 
 class Player : public GameObject
 {
@@ -12,6 +13,7 @@ public:
 	
 	void Draw(SDL_Renderer* pRenderer);
 	void Update();
+	void HandleInput();
 	void Clean();
 
 };

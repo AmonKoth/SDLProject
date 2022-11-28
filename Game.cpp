@@ -41,6 +41,9 @@ bool Game::Init(const char* title, int xpos, int ypos, int height, int width, bo
 	}
 	std::cout << "Init success \n";
 	m_bRunning = true;
+
+	TheInputHandler::Instance()->InitializeController();
+
 	if (!TheTextureManager::Instance()->Load("assets/marco.png", "marco", mainRenderer))
 	{
 		return false;
@@ -72,25 +75,20 @@ void Game::Renderer()
 void Game::Clean()
 {
 	std::cout << "cleaning game\n";
+	TheInputHandler::Instance()->Clean();
 	SDL_DestroyWindow(mainWindow);
 	SDL_DestroyRenderer(mainRenderer);
 	SDL_Quit();
 }
 
+void Game::QuitGame()
+{
+	m_bRunning = false;
+}
+
 void Game::HandleEvents()
 {
-	SDL_Event event;
-	if (SDL_PollEvent(&event))
-	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			m_bRunning = false;
-			break;
-		default:
-			break;
-		}
-	}
+	TheInputHandler::Instance()->Update();
 }
 
 void Game::Update()

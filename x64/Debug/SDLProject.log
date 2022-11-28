@@ -1,3 +1,2 @@
-﻿  main.cpp
-C:\VSProjects\OpenGL\SDLProject\main.cpp(4,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  InputHandler.cpp
   SDLProject.vcxproj -> C:\VSProjects\OpenGL\SDLProject\x64\Debug\SDLProject.exe

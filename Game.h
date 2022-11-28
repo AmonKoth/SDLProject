@@ -10,6 +10,7 @@
 #include "TextureManager.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "InputHandler.h"
 
 class Game
 {
@@ -21,6 +22,7 @@ public:
 	void Update();
 	void HandleEvents();
 	void Clean();
+	void QuitGame();
 	bool running() { return m_bRunning; }
 
 	SDL_Renderer* GetRenderer() { return mainRenderer; }
