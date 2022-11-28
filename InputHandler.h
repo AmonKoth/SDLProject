@@ -38,6 +38,11 @@ public:
 		return m_mouseButtonStates[buttonNumber];
 	}
 
+	Vector2D* getMousePos()
+	{
+		return m_mousePos;
+	}
+
 private:
 
 
@@ -47,6 +52,8 @@ private:
 	static InputHandler* s_pInstance;
 
 	std::vector<bool> m_mouseButtonStates;
+
+	Vector2D* m_mousePos;
 
 
 };

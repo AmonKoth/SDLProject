@@ -6,6 +6,7 @@ void InputHandler::InitializeController()
 	{
 		m_mouseButtonStates.push_back(false);
 	}
+	m_mousePos = new Vector2D(0, 0);
 }
 
 void InputHandler::Update()
@@ -17,6 +18,11 @@ void InputHandler::Update()
 		{
 
 			TheGame::Instance()->QuitGame();
+		}
+		if (event.type == SDL_MOUSEMOTION)
+		{
+			m_mousePos->SetX(event.motion.x);
+			m_mousePos->SetY(event.motion.y);
 		}
 		if (event.type == SDL_MOUSEBUTTONDOWN)
 		{

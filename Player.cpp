@@ -25,15 +25,18 @@ void Player::Update()
 }
 
 void Player::HandleInput()
-{
+{/*
 	if (TheInputHandler::Instance()->getMouseButtonState(LEFT))
 	{
-		m_velocity.SetX(5);
+		m_velocity.SetX(1);
 	}
 	if (TheInputHandler::Instance()->getMouseButtonState(RIGHT))
 	{
-		m_velocity.SetX(-5);
+		m_velocity.SetX(-1);
 	}
+	*/
+	Vector2D* vec = TheInputHandler::Instance()->getMousePos();
+	m_velocity = (*vec - m_position) / 100;
 }
 
 void Player::Clean()
