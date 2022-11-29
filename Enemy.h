@@ -14,8 +14,6 @@ public:
 	void Update();
 	void Clean();
 
-
-
 };
 
 #endif // !ENEMY_H

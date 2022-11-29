@@ -68,12 +68,36 @@ void Game::Renderer()
 
 	SDL_RenderClear(mainRenderer);
 
-	for (std::vector<GameObject*>::size_type i = 0; i < m_gameObjects.size(); i++)
-	{
-		m_gameObjects[i]->Draw(mainRenderer);
-	}
+	m_gameStateMachine->Render();
+
+	//for (std::vector<GameObject*>::size_type i = 0; i < m_gameObjects.size(); i++)
+	//{
+	//	m_gameObjects[i]->Draw(mainRenderer);
+	//}
 	SDL_RenderPresent(mainRenderer);
 }
+
+void Game::Update()
+{
+	currentFrame = int(((SDL_GetTicks() / 100) % 9));
+	m_gameStateMachine->Update();
+	//for (std::vector<GameObject*>::size_type i = 0; i < m_gameObjects.size(); i++)
+	//{
+	//	m_gameObjects[i]->Update();
+	//}
+}
+
+void Game::HandleEvents()
+{
+	TheInputHandler::Instance()->Update();
+	
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN))
+	{
+		m_gameStateMachine->ChangeState(new PlayState());
+	}
+}
+
+
 
 void Game::Clean()
 {
@@ -87,25 +111,6 @@ void Game::Clean()
 void Game::QuitGame()
 {
 	m_bRunning = false;
-}
-
-void Game::HandleEvents()
-{
-	TheInputHandler::Instance()->Update();
-	
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN))
-	{
-		m_gameStateMachine->ChangeState(new PlayState());
-	}
-}
-
-void Game::Update()
-{
-	currentFrame = int(((SDL_GetTicks() / 100) % 9));
-	for (std::vector<GameObject*>::size_type i = 0; i < m_gameObjects.size(); i++)
-	{
-		m_gameObjects[i]->Update();
-	}
 }
 
 Game* Game::s_pInstance = 0;

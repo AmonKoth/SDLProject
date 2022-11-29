@@ -11,8 +11,10 @@ public:
 
 	void PushState(GameState* gameState);
 	void ChangeState(GameState* gameState);
-
 	void PopState();
+
+	void Render();
+	void Update();
 
 private:
 
