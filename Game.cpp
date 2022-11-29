@@ -53,6 +53,9 @@ bool Game::Init(const char* title, int xpos, int ypos, int height, int width, bo
 		return false;
 	}
 
+	m_gameStateMachine = new GameStateMachine();
+	m_gameStateMachine->ChangeState(new MenuState());
+
 	m_gameObjects.push_back(new Player(10,20, 32, 42, "marco"));
 	m_gameObjects.push_back(new Enemy(20, 20, 50, 45, "skelly"));
 	m_gameObjects.push_back(new Enemy(20, 30, 50, 45, "skelly"));
@@ -89,6 +92,11 @@ void Game::QuitGame()
 void Game::HandleEvents()
 {
 	TheInputHandler::Instance()->Update();
+	
+	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN))
+	{
+		m_gameStateMachine->ChangeState(new PlayState());
+	}
 }
 
 void Game::Update()

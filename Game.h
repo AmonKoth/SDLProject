@@ -11,6 +11,9 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "InputHandler.h"
+#include "MenuState.h"
+#include "PlayState.h"
+#include "GameStateMachine.h"
 
 class Game
 {
@@ -48,6 +51,7 @@ private:
 	static Game* s_pInstance;
 	
 	std::vector<GameObject*> m_gameObjects;
+	GameStateMachine* m_gameStateMachine;
 };
 
 typedef Game TheGame;

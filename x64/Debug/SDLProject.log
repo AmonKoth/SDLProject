@@ -1,2 +1,10 @@
-﻿  Player.cpp
+﻿  Game.cpp
+  GameStateMachine.cpp
+  InputHandler.cpp
+C:\VSProjects\OpenGL\SDLProject\InputHandler.cpp(45,31): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+C:\VSProjects\OpenGL\SDLProject\InputHandler.cpp(46,31): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+  main.cpp
+C:\VSProjects\OpenGL\SDLProject\main.cpp(4,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Player.cpp
+  Generating Code...
   SDLProject.vcxproj -> C:\VSProjects\OpenGL\SDLProject\x64\Debug\SDLProject.exe
