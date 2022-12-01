@@ -27,7 +27,8 @@ void GameStateMachine::ChangeState(GameState* gameState)
 
 void GameStateMachine::PopState()
 {
-	if (!m_gameStateList.empty())
+	std::cout << " size of the game state list: " << m_gameStateList.size(); " \n";
+	if (m_gameStateList.empty())
 	{
 		return;
 	}

@@ -2,6 +2,9 @@
 #define PLAY_STATE_H
 
 #include "GameState.h"
+#include "Player.h"
+#include "Enemy.h"
+#include "PauseState.h"
 
 class PlayState : public GameState
 {
@@ -17,6 +20,8 @@ public:
 
 private:
 	static const std::string s_playStateID;
+
+	std::vector<GameObject*> m_gameObjects;
 
 };
 

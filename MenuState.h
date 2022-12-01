@@ -16,6 +16,10 @@ public :
 	virtual bool onEnter();
 	virtual bool onExit();
 
+
+	static void s_menuToPlay();
+	static void s_exitFromMenu();
+
 	virtual std::string GetStateID() const { return s_menuStateID; }
 
 

@@ -78,6 +78,13 @@ void InputHandler::onMouseButtonUp(SDL_Event& event)
 	}
 }
 
+void InputHandler::Reset()
+{
+	m_mouseButtonStates[LEFT] = false;
+	m_mouseButtonStates[RIGHT] = false;
+	m_mouseButtonStates[MIDDLE] = false;
+}
+
 bool InputHandler::isKeyDown(SDL_Scancode key)
 {
 	if (m_keyStates == 0)

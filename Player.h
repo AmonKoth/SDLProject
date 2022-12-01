@@ -15,7 +15,6 @@ public:
 	void Update();
 	void HandleInput();
 	void Clean();
-
 };
 
 

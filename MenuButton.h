@@ -15,13 +15,19 @@ enum button_state
 class MenuButton :public GameObject
 {
 public:
-	MenuButton(float x, float y, int width, int heigth, std::string textureID);
+	MenuButton(float x, float y, int width, int heigth, std::string textureID, void (*callback)());
 	
 	virtual void Draw(SDL_Renderer* pRenderer);
 	virtual void Update();
 	virtual void Clean();
 
 
+private:
+
+	void (*m_callback) ();
+
+
+	bool m_buttonReleased = false;
 
 };
 

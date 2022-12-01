@@ -9,7 +9,16 @@ Player::Player(float x, float y, int width, int height, std::string textureID) :
 
 void Player::Draw(SDL_Renderer* pRenderer)
 {
-	GameObject::Draw(pRenderer);
+	if (m_velocity.GetX() > 0)
+	{
+		TheTextureManager::Instance()->DrawFrame(m_textureID, (Uint32)m_position.GetX(), (Uint32)m_position.GetY(), m_width, m_height, m_currentRow, m_currentFrame,
+			pRenderer);
+	}
+	else
+	{
+		TheTextureManager::Instance()->DrawFrame(m_textureID, (Uint32)m_position.GetX(), (Uint32)m_position.GetY(), m_width, m_height, m_currentRow, m_currentFrame,
+			pRenderer, SDL_FLIP_HORIZONTAL);
+	}
 }
 
 
@@ -37,10 +46,10 @@ void Player::HandleInput()
 	//}
 	
 	//Mouse
-	//Vector2D* vec = TheInputHandler::Instance()->getMousePos();
-	//m_velocity = (*vec - m_position) / 100;
+	Vector2D* target = TheInputHandler::Instance()->getMousePos();
+	m_velocity = (*target - m_position) / 50;
 
-	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
+	/*if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
 	{
 		m_velocity.SetX(2);
 	}
@@ -55,7 +64,7 @@ void Player::HandleInput()
 	if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN))
 	{
 		m_velocity.SetY(2);
-	}
+	}*/
 }
 
 void Player::Clean()

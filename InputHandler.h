@@ -33,6 +33,8 @@ public:
 	void Update();
 	void Clean();
 
+	void Reset();
+
 	bool getMouseButtonState(int buttonNumber)
 	{
 		return m_mouseButtonStates[buttonNumber];

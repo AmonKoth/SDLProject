@@ -28,6 +28,8 @@ public:
 	void QuitGame();
 	bool running() { return m_bRunning; }
 
+	GameStateMachine* GetGameStateMachine() { return m_gameStateMachine; }
+
 	SDL_Renderer* GetRenderer() { return mainRenderer; }
 
 	static Game* Instance()

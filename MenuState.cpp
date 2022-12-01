@@ -29,8 +29,8 @@ bool MenuState::onEnter()
 		return false;
 	}
 
-	GameObject* button1 = new MenuButton(100,100,400,100,"playbutton");
-	GameObject* button2 = new MenuButton(100,300,400,100,"exitbutton");
+	GameObject* button1 = new MenuButton(100,100,400,100,"playbutton", s_menuToPlay);
+	GameObject* button2 = new MenuButton(100,300,400,100,"exitbutton", s_exitFromMenu);
 
 	m_menuObjects.push_back(button1);
 	m_menuObjects.push_back(button2);
@@ -51,4 +51,14 @@ bool MenuState::onExit()
 
 	std::cout << "Exiting menu State\n";
 	return true;
+}
+
+void MenuState::s_menuToPlay()
+{
+	TheGame::Instance()->GetGameStateMachine()->ChangeState(new PlayState());
+}
+
+void MenuState::s_exitFromMenu()
+{
+	TheGame::Instance()->QuitGame();
 }
