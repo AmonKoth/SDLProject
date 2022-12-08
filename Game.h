@@ -48,7 +48,6 @@ private:
 	SDL_Renderer* mainRenderer;
 	
 	bool m_bRunning;
-	int currentFrame;
 
 	static Game* s_pInstance;
 	

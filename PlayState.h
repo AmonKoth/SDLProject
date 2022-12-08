@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "PauseState.h"
+#include "GameOverState.h"
 
 class PlayState : public GameState
 {
@@ -14,6 +15,8 @@ public:
 
 	virtual bool onEnter();
 	virtual bool onExit();
+
+	bool CheckCollision(GameObject* p1, GameObject* p2);
 
 	virtual std::string GetStateID() const { return s_playStateID; }
 

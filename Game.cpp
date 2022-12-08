@@ -79,7 +79,6 @@ void Game::Renderer()
 
 void Game::Update()
 {
-	currentFrame = int(((SDL_GetTicks() / 100) % 9));
 	m_gameStateMachine->Update();
 	//for (std::vector<GameObject*>::size_type i = 0; i < m_gameObjects.size(); i++)
 	//{

@@ -1,10 +1,9 @@
 #ifndef PAUSE_STATE_H
 #define PAUSE_STATE_H
 
-#include "GameState.h"
-#include "Game.h"
 #include "MenuState.h"
-#include "MenuButton.h"
+#include "PlayState.h"
+
 
 class GameObject;
 
